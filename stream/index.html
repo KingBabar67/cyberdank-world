@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyberdank FM | Mind Stream</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #39ff14;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2rem;
+      text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    }
+
+    audio {
+      width: 90%;
+      max-width: 500px;
+      margin-top: 2rem;
+      filter: drop-shadow(0 0 5px #0ff);
+    }
+
+    .ascii {
+      color: #0f0;
+      font-size: 12px;
+      white-space: pre;
+      margin-top: 2rem;
+    }
+
+    .glitch {
+      color: #ff00ff;
+      text-shadow: 0 0 5px #ff00ff, 0 0 10px #0ff;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="glitch">Welcome to Cyberdank FM</h1>
+  <audio controls autoplay>
+    <source src="https://stream.cyberdank.world/stream" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="ascii">
+    <pre>
+     _______    _______   ______   __    __   ______  
+    /       \  /       \ /      \ /  |  /  | /      \ 
+    $$$$$$$  | $$$$$$$  |$$$$$$  |$$ |  $$ |/$$$$$$  |
+    $$ |__$$ | $$ |__$$ | /    $$ |$$ |  $$ |$$ |  $$ |
+    $$    $$/  $$    $$/ /$$$$$$$ |$$ |  $$ |$$ |  $$ |
+    $$$$$$$/   $$$$$$$/  $$    $$ |$$ \__$$ |$$ \__$$ |
+    $$ |       $$ |       $$$$$$$/ $$    $$/ $$    $$/ 
+    $$/        $$/                                  
+    </pre>
+  </div>
+</body>
+</html>

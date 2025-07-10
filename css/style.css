@@ -1,0 +1,140 @@
+/* ───────────────────────────────
+   1.  SCALEABLE TYPOGRAPHY
+   ───────────────────────────── */
+:root { --base-size: 16px; }          /* בסיס ברירת-מחדל */
+
+body         { font-size: var(--base-size); }
+p            { font-size: 1.0rem; opacity: .9; }
+.about-box p { font-size: .9rem;  }
+
+/*   מסכים גדולים מאוד  */
+@media (min-width: 1600px) { :root { --base-size: 18px; } }
+/*   מסכים צרים – עדכון בסיס + ערימת עמודות  */
+@media (max-width: 800px)  { :root { --base-size: 14px; } }
+
+/* ───────────────────────────────
+   2.  GLOBAL STYLES
+   ───────────────────────────── */
+body{
+  background:#000;
+  color:#00ff00;
+  font-family:'Courier New',Courier,monospace;
+  text-align:center;
+  padding:2rem;
+}
+
+/* ───────────────────────────────
+   3.  FLEX LAYOUT (DESKTOP)
+   ───────────────────────────── */
+.container{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:2rem;
+}
+
+/* ─── navigation (desktop) */
+nav        { flex:1; text-align:left; }
+nav ul     { list-style:none; padding:0; }
+nav a      { color:#00ff00; text-decoration:none; }
+
+/* ─── main / aside */
+main       { flex:2; }
+aside      { flex:1; text-align:left; }
+
+/* ───────────────────────────────
+   4.  ASCII TITLE
+   ───────────────────────────── */
+.ascii-title{
+  color:#00ff00;
+  font-family:'Courier New',Courier,monospace;
+  font-size:.85rem;
+  white-space:pre;
+  line-height:1.1;
+  margin:1rem 0 2rem;
+  text-shadow:0 0 2px #00ff00,
+              0 0 5px #00ff00,
+              0 0 10px #00ff00;
+}
+
+/* ───────────────────────────────
+   5.  INTRO / ABOUT BLOCK
+   ───────────────────────────── */
+.intro-box { margin-bottom:1rem; }
+
+.about-box{
+  position:relative;
+  width:90%;
+  max-width:340px;
+  max-height:30vh;          /* יקטן/יגדל עם גובה החלון */
+  min-height:200px;
+  margin:0 auto;
+  overflow-y:auto;
+  padding:0 1rem;
+  background:#111;
+  border:1px solid #00ff00;
+  border-radius:4px;
+  line-height:1.4;
+  scrollbar-width:thin;
+  scrollbar-color:#00ff00 #111;
+}
+.about-box h2,
+.about-box h3{ margin-top:0; color:#00ff00; }
+
+/*  חץ גלילה  */
+.about-box::after{
+  content:'▼';
+  position:absolute;
+  bottom:4px; left:50%;
+  transform:translateX(-50%);
+  font-size:.8rem; color:#00ff00;
+  opacity:.6; pointer-events:none;
+  animation:blink 1.2s infinite;
+}
+
+/* ───────────────────────────────
+   6.  MOBILE LAYOUT  (≤800 px)
+   ───────────────────────────── */
+@media (max-width:800px){
+
+  .container{
+    flex-direction:column;
+    align-items:center;
+    gap:1.2rem;
+    text-align:center;
+  }
+
+  /* nav הופך לאופקי */
+  nav ul{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:.8rem;
+  }
+  nav li{ margin:0; }
+
+  /* עמודות מוגבלות לרוחב חלון */
+  nav,main,aside{
+    width:100%;
+    max-width:94vw;
+  }
+
+  .ascii-title{ font-size:.65rem; }
+
+  .about-box{
+    max-height:25vh;
+  }
+  .aside{
+    justify-content:center;
+    align-items:center;
+  }
+}
+
+
+/* ───────────────────────────────
+   7.  MISC
+   ───────────────────────────── */
+@keyframes blink{
+  0%,100%{opacity:.6;}
+  50%    {opacity:.1;}
+}
